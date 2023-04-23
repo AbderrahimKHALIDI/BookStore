@@ -35,7 +35,7 @@ function BookNew() {
     };
     formData.append("book", book);
     if (image) {
-      formData.append("image", image);
+      formData.append("image", image[0]);
     }
 
     bookServices.addBook(formData);

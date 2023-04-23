@@ -35,8 +35,8 @@ const updateBook=async(req,res)=>{
 }
 const addBook=async(req,res)=>{
     try{
-        console.log(req.file.filename)
-        const imageUrl=`http://localhost:8899/books//${req.file.filename}`
+        console.log(req.files)
+        const imageUrl=`http://localhost:8899/books/${req.file.filename}`
         const book={
             name: req.body.name,
             description: req.body.description,
