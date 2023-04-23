@@ -3,7 +3,7 @@ import bookServices from "../../services/book.service";
 import catServices from "../../services/categories.service";
 import { useNavigate } from "react-router-dom";
 function BookNew() {
-  const [name, setName] = useState("");
+  const [name, setName] = useState();
   const [description, setDescription] = useState("");
   const [isbn, setIsbn] = useState("");
   const [auteur, setAuteur] = useState("");
@@ -12,6 +12,7 @@ function BookNew() {
   const [selectCat, setselectCat] = useState(0);
   const [date_publication, setDatePub] = useState(new Date());
   const [image, setImage] = useState(null);
+  console.log(image);
 
   const formData = new FormData();
   const navigate = useNavigate();
@@ -34,8 +35,9 @@ function BookNew() {
       date_publication: date_publication,
     };
     formData.append("book", book);
+
     if (image) {
-      formData.append("image", image[0]);
+      formData.append("image", image);
     }
 
     bookServices.addBook(formData);
