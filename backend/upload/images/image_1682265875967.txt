@@ -1,0 +1,26 @@
+docker pull ubuntu => create image for ubuntu
+docker run ubuntu => demarrer container ubuntu, on remarque que un nouveau conteneur s'ajoute et se demarre
+docker ps => lister les containers actives
+docker ps -a => lister tous les containers (actives et non actives)
+docker run --name MyUbuntu -it ubuntu => lancer un container avec le nom MyUbuntu
+
+apt-get update => mettre a jour le container 
+docker start MyUbuntu => demarrer container existant
+docker exec -it MyUbuntu bash => lancer le terminal bash du container MyUbuntu
+=> interfaces de gestion reseaux
+apt install net-tools
+apt-get install iputils-ping
+
+
+docker stop MyUbuntu => arreter un container
+docker logs MyUbuntu => logs (historique) des modifs effectués dans le container
+docker stats MyUbuntu => ressources recupérés par le container
+
+=> monter un dossier local dans un docker container de l'image Ubuntu
+docker run -v "C:\Users\lenovo t490\Desktop\MyData:/data" -itd ubuntu
+
+=> enregistrer container sous forme d'image (image nommée ubuntuHamzaImage de l'auteur Hamza Haimeur)
+docker commit -m "container converted to image" -a "Hamza Haimeur" MyUbuntu ubuntuHamzaImage
+
+=> supprimer container
+docker rm MyUbuntu
